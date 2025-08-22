@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://ba3fp6hntkhe0"]
+
+[ext_resource type="Texture2D" uid="uid://blq4b4q2ur5ut" path="res://icon.svg" id="1_ph68p"]
+[ext_resource type="Texture2D" uid="uid://bl1eld0517bm2" path="res://miku_idle.png" id="2_etsva"]
+[ext_resource type="Texture2D" uid="uid://dhgmyvp20dmh3" path="res://miku_kick1.png" id="2_lg8fi"]
+[ext_resource type="Texture2D" uid="uid://trgu8ec5yyv8" path="res://miku_kick2.png" id="3_hrkd0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tx3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ph68p")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lg8fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hrkd0")
+}],
+"loop": true,
+"name": &"kick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ph68p")
+}],
+"loop": true,
+"name": &"punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_etsva")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etsva"]
+size = Vector2(113, 222)
+
+[node name="Miku" type="CharacterBody2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6.15682, 6)
+sprite_frames = SubResource("SpriteFrames_5tx3q")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_etsva")
